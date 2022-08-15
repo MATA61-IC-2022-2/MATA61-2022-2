@@ -70,7 +70,7 @@ intermediário. Geração e otimização de código objeto.
 Data | Semana | Tópico
 -- | -- | --
 15 e 17/08/2022 | 1 | Apresentação da disciplina, Conceitos básicos
-<!-
+<!--
 14 e 16/03/2022 | 2 | 
 21 e 23/03/2022 | 3 | 
 28 e 30/03/2022 | 4 | Análise Léxica (AL), expressões regulares. autômatos finitos, implementação de AL
