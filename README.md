@@ -48,7 +48,6 @@ intermediário. Geração e otimização de código objeto.
 - Aulas presenciais
 - Leituras e discussões
 - Quizzes e exercícios para explorar conceitos de compiladores e sua implementação
-- Pequenas tarefas e discussões
 - Trabalho prático de construção de um compilador.
 
 ### Plataformas de Apoio
@@ -56,6 +55,11 @@ intermediário. Geração e otimização de código objeto.
    - Google Classroom
    - GitHub
    - Discord
+ 
+## Atividades 
+ 
+   - Trabalho Prático:  Projetar e implementar um compilador (incluindo Analisador Léxico, Analisador Sintático, Analisador Semântico e Gerador de Código) para uma linguagem simples e de alto nível.
+   - Outras Atividades: Quizzes,  exercícios individuais
 
 ## Avaliação
 
