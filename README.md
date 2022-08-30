@@ -77,20 +77,19 @@ intermediário. Geração e otimização de código objeto.
 
 Data | Semana | Tópico
 -- | -- | --
-15 e 17/08/2022 | 1 | Apresentação da disciplina, Conceitos básicos
-<!--
-14 e 16/03/2022 | 2 | 
-21 e 23/03/2022 | 3 | 
-28 e 30/03/2022 | 4 | Análise Léxica (AL), expressões regulares. autômatos finitos, implementação de AL
-04 e 06/04/2022 | 5 | Flex, implementação de AL com Flex
-11 e 13/04/2022 | 6 |  
-18 e 20/04/2022 | 7 |  
-25 e 27/04/2022 | 8 |
-02 e 04/05/2022 | 9 |  
-09 e 11/05/2022 | 10 |
-16 e 18/05/2022 | 11 |  
-23 e 25/05/2022 | 11 |  
-30/05 e 01/06/2022 | 12 |  
+15 e 17/08/2022 | 1 | Apresentação da disciplina, conceitos básicos
+22 e 24/08/2022 | 2 | Análise léxica, revisão de expressões regulares, autômatos finitos
+29 e 31/08/2022 | 3 | Implementação e geração de analisadores léxicos, Flex
+05 e 07/09/2022 | 4 | Especificação do trabalho prático. FERIADO.
+12 e 14/09/2022 | 5 | 
+19 e 21/09/2022 | 6 |  
+26 e 28/09/2022 | 7 |  
+03 e 05/10/2022 | 8 | CBSOFT / SBES 2022
+10 e 12/10/2022 | 9 |  
+17 e 19/10/2022 | 10 | Aula remota 
+24 e 26/10/2022 | 11 |  
+31/10 e 02/11/2022 | 12 |  
+07 e 09/11/2022 | 12 |  
 06 e 08/06/2022 | 13 | 
 13 e 15/06/2022 | 14 | 
 20 e 22/06/2022 | 15 | 
