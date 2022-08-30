@@ -17,7 +17,7 @@
    – O código é carregado em parte do espaço
    – O SO desvia para o ponto de entrada (ou seja, "main").
    
- ![Laioute de memória](.\figuras\.png)
+ ![Laioute de memória](.\figuras\Screen Shot 2022-08-30 at 20.18.01.png)
 
 
 ## Correspondência entre estruturas estáticas e dinâmicas
