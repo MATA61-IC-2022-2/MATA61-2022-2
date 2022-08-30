@@ -47,4 +47,4 @@ Tais imagens são simplificações:
 
 ####  Laioute de memória com a "Heap" 
 
-<img src="https://github.com/MATA61-IC-2022-2/MATA61-2022-2/blob/8f7d5adbf703476ac065a7861dc298a40213136d/Aulas/figuras/Screen%20Shot%202022-08-30%20at%2020.18.01.png" width="350" height="250">
+<img src="https://github.com/MATA61-IC-2022-2/MATA61-2022-2/blob/f22c3174ad2daaeb7191d5bceaae3c1d6f7d5d73/Aulas/figuras/Screen%20Shot%202022-08-30%20at%2020.54.14.png" width="350" height="250">
