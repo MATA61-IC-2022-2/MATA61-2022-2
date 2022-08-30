@@ -16,6 +16,8 @@
    – O SO aloca espaço para o programa
    – O código é carregado em parte do espaço
    – O SO desvia para o ponto de entrada (ou seja, "main").
+   
+ ![Laioute de memória](.\figuras\.png)
 
 
 ## Correspondência entre estruturas estáticas e dinâmicas
