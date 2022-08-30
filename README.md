@@ -28,20 +28,24 @@ intermediário. Geração e otimização de código objeto.
 2. Análise Léxica: 
   a) Conceitos básicos (tokens, lexemas, etc.);
   b) Especificação e reconhecimento de linguagens regulares;
-  c) Implementação manual e geração de analisadores léxicos.
+  c) Implementação e geração de analisadores léxicos.
 3. Análise Sintática: 
   a) Conceitos básicos (derivação, árvores sintáticas, ambiguidade, etc.);
   b) Especificação e reconhecimento de linguagens livres de contexto; 
   c) Análise LL e LR;
-  d) Implementação manual e geração de analisadores sintáticos. 
+  d) Implementação e geração de analisadores sintáticos;
+  e) Árvores sintáticas abstratas.
 4. Análise semântica: 
   a) Conceitos básicos;
   b) Sistemas de tipos;
   c) Tabela de símbolos e resolução de nomes;
   d) Implementação de verificação de tipos. 
-5. Ambientes de execução, organização de memória
-6. Geração de código 
-7. Otimização de código
+5. Representação intermediária 
+6. Ambientes de execução, organização de memória
+  a) Heap Management
+  b) Stack Management
+7. Geração de código 
+8. Otimização de código
 
 ## Métodos
 
