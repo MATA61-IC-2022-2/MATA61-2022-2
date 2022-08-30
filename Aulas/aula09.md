@@ -17,7 +17,7 @@
    – O código é carregado em parte do espaço
    – O SO desvia para o ponto de entrada (ou seja, "main").
    
-![Laioute de memória]<img src="https://github.com/MATA61-IC-2022-2/MATA61-2022-2/blob/8f7d5adbf703476ac065a7861dc298a40213136d/Aulas/figuras/Screen%20Shot%202022-08-30%20at%2020.18.01.png" width="700" height="500">
+<a>Laioute de memória <img src="https://github.com/MATA61-IC-2022-2/MATA61-2022-2/blob/8f7d5adbf703476ac065a7861dc298a40213136d/Aulas/figuras/Screen%20Shot%202022-08-30%20at%2020.18.01.png" width="350" height="250"></a>
  
 ## Correspondência entre estruturas estáticas e dinâmicas
 
