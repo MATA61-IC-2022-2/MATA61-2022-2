@@ -22,9 +22,9 @@ intermediário. Geração e otimização de código objeto.
 ## Programa
 
 1. Introdução à Compilação de Programas:
-  a) Conceitos básicos e funcionalidades;
-  b) Componentes de um compilador;
-  c) Fases de Análise e Síntese. 
+   a) Conceitos básicos e funcionalidades;
+   b) Componentes de um compilador;
+   c) Fases de Análise e Síntese. 
 2. Análise Léxica: 
   a) Conceitos básicos (tokens, lexemas, etc.);
   b) Especificação e reconhecimento de linguagens regulares;
@@ -56,14 +56,14 @@ intermediário. Geração e otimização de código objeto.
 
 ### Plataformas de Apoio
 
-   - Google Classroom
-   - GitHub
-   - Discord
+- Google Classroom
+- GitHub
+- Discord
  
 ## Atividades 
  
-   - Trabalho Prático:  Projetar e implementar um compilador (incluindo Analisador Léxico, Analisador Sintático, Analisador Semântico e Gerador de Código) para uma linguagem simples e de alto nível.
-   - Outras Atividades: Quizzes,  exercícios individuais
+- Trabalho Prático:  Projetar e implementar um compilador (incluindo Analisador Léxico, Analisador Sintático, Analisador Semântico e Gerador de Código) para uma linguagem simples e de alto nível.
+- Outras Atividades: Quizzes,  exercícios individuais
 
 ## Avaliação
 
@@ -89,13 +89,11 @@ Data | Semana | Tópico
 17 e 19/10/2022 | 10 | Aula remota 
 24 e 26/10/2022 | 11 |  
 31/10 e 02/11/2022 | 12 |  
-07 e 09/11/2022 | 12 |  
-06 e 08/06/2022 | 13 | 
-13 e 15/06/2022 | 14 | 
-20 e 22/06/2022 | 15 | 
-27 e 29/06/2022 | 15 | 
-04 e 06/07/2022 | 16 | 
--->
+07 e 09/11/2022 | 13 |  
+14 e 16/11/2022 | 14 | 
+21 e 23/11/2022 | 15 | 
+05 e 07/12/2022 | 16 | 
+12 e 14/12/2022 | 17 | 
 
 ## Material de Apoio
 
