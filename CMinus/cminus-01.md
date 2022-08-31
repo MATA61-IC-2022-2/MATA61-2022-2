@@ -38,19 +38,20 @@ As palavras-chave são reservadas e devem ser escritas em letras minúsculas.
 
 - Caracteres maiúsculos e minúsculos em identificadores são diferenciados.
 
-### 4. Caracteres de espacejamento (_white space_) incluem _blank_ (' '), _newline_ ('\n'), e _tab_ ('\t'). 
-Esses caracteres devem ser ignorados.
+### 4. Caracteres de espacejamento (_white space_) 
+
+Os caracteres de espacejamento são _blank_ (' '), _newline_ ('\n'), e _tab_ ('\t').
 
 ### 5. Comentários de uma linha
 
 Comentários de uma linha (_single-line comments_) sempre são iniciados por ```//``` e se estendem até o final da linha.
-Outros tipos de comentários não são suportados.
 
 ### 6. Erros Léxicos
 
 - "caracter desconhecido" 
 
 -----
+
 ### Créditos
 
 Adaptado do material didático cedido pelo Prof. Vinicius.
