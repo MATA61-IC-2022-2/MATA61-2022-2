@@ -9,7 +9,7 @@ C- inclui variáveis inteiras, funções e arrays, com declarações locais e gl
 
 ## [Semântica](./cminus-03.md)
 
-## [Programas em C-](./cminus-examples.md)
+## [Programas em C-](./examples.md)
 
 -----
 ## Créditos
