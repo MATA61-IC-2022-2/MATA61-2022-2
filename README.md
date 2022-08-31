@@ -77,17 +77,17 @@ intermediário. Geração e otimização de código objeto.
 
 Data | Semana | Tópico
 -- | -- | --
-15 e 17/08/2022 | 1 | Apresentação da disciplina, conceitos básicos
-22 e 24/08/2022 | 2 | Análise léxica, revisão de expressões regulares, autômatos finitos
-29 e 31/08/2022 | 3 | Implementação e geração de analisadores léxicos, Flex
-05 e 07/09/2022 | 4 | Especificação do trabalho prático. FERIADO.
-12 e 14/09/2022 | 5 | 
-19 e 21/09/2022 | 6 |  
-26 e 28/09/2022 | 7 |  
-03 e 05/10/2022 | 8 | CBSOFT / SBES 2022
-10 e 12/10/2022 | 9 |  
-17 e 19/10/2022 | 10 | Aula remota 
-24 e 26/10/2022 | 11 |  
+15 e 17/08/2022 | 1 | Apresentação da disciplina; Conceitos básicos de compiladores
+22 e 24/08/2022 | 2 | Análise léxica, revisão de expressões regulares, autômatos finitos; Implementação e geração de analisadores léxicos
+29 e 31/08/2022 | 3 | Flex; Especificação do trabalho prático 1; Conceitos básicos de análise sintática.
+05 e 07/09/2022 | 4 | Conceitos básicos de análise sintática; FERIADO.
+12 e 14/09/2022 | 5 | Análise sintática descendente
+19 e 21/09/2022 | 6 | Análise sintática descendente 
+26 e 28/09/2022 | 7 | Análise sintática ascendente
+03 e 05/10/2022 | 8 | Análise sintática ascendente (Aula remota - CBSOFT / SBES 2022)
+10 e 12/10/2022 | 9 | Bison
+17 e 19/10/2022 | 10 | Especificação do trabalho prático 2 (Aula remota - Palestra no ERES 2022)
+24 e 26/10/2022 | 11 |  Análise Semântica
 31/10 e 02/11/2022 | 12 |  
 07 e 09/11/2022 | 13 |  
 14 e 16/11/2022 | 14 | 
@@ -99,7 +99,7 @@ Data | Semana | Tópico
 
 - Exercícios, quizzes, textos em formato .PDF e vídeos: Google Classroom da UFBA, disciplina MATA61 2022.2 T01.
 - Código de exercícios práticos, textos em formato markdown, especificação e implementação do compilador: Repositórios na Organização mata61-ic-ufba-2022-2 no GitHub.
-- Tutorial Git-it: https://github.com/jlord/git-it-electron/releases
+- Tutoriais: Git & GitHub Basics; Git-it: https://github.com/jlord/git-it-electron/releases
 
 ## Bibliografia
 
