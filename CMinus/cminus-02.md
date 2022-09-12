@@ -54,7 +54,7 @@
 
                    | if ( <expression> ) <statement> else <statement>
 
-<iteration-stmt> ::= while ( <expression> ) <statement>
+<iteration-stmt> ::= while ( <expression> ) do <statement>
 
 <return-stmt> ::= return ; 
                 | return <expression> ;
