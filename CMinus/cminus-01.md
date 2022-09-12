@@ -5,7 +5,7 @@
 ### 1. Palavras-chave (_keywords_)
 
 ```
-else  if  int  return  void  while
+do else  if  int  return  void  while
 ```
 
 As palavras-chave são reservadas e devem ser escritas em letras minúsculas.
