@@ -54,4 +54,4 @@ Comentários de uma linha (_single-line comments_) sempre são iniciados por ```
 
 ### Créditos
 
-Adaptado do material didático cedido pelo Prof. Vinicius.
+Adaptado do material didático cedido pelo Prof. Vinicius Petrucci.
