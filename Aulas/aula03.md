@@ -1,7 +1,6 @@
 # Análise Sintática Ascendente
 
-Análise _bottom-up_: a construção da árvore de derivação começa pelas folhas e prossegue em direção à raiz.
-
+Análise sintática ascendente (_bottom-up_) a construção da árvore de derivação começa pelas folhas e prossegue em direção à raiz.
 
                         S
 
@@ -11,20 +10,19 @@ Análise _bottom-up_: a construção da árvore de derivação começa pelas fol
 
 A sentença de entrada (cadeia w) é reduzida, em um ou mais passos, ao símbolo inicial da gramática (S).
 
-
 O processo de redução é inverso ao de derivação:
 
-- uma subcadeia β de uma forma sentencial αβγ que coincide com o lado direito de alguma produção A → β é substituída pelo não-terminal A à esquerda da produção, obtendo-se uma nova forma sentencial αAγ.
+- uma subcadeia ```β``` de uma forma sentencial ```αβγ``` que coincide com o lado direito de alguma produção ```A → β``` é substituída pelo não-terminal A à esquerda da produção, obtendo-se uma nova forma sentencial ```αAγ```.
 
-- a subcadeia β é chamada de redutendo (_handle_) da forma sentencial αβγ.
+- a subcadeia ```β``` é chamada de redutendo (_handle_) da forma sentencial ```αβγ```.
 
 ## Algoritmo de Análise Ascendente
 
-Funcionamento Básico
+### Funcionamento Básico
 
 Adota-se como o valor inicial de α a cadeia de entrada dada.
 
-Procura-se decompor α de tal maneira que α = βX1X2...Xnγ, e exista uma produção da forma X → X1X2...Xn. 
+Procura-se decompor ```α``` de tal maneira que ```α = βX1X2...Xnγ```, e exista uma produção da forma X → X1X2...Xn. 
 Caso isto seja possível, adota-se a nova cadeia α = βXγ, associando-se com esta ocorrência do não-terminal X uma árvore cuja raiz tem rótulo X e cujas subárvores diretas são as árvores que estavam associadas com as ocorrências de X1X2...Xn que foram substituídas. 
 Se Xi  é um símbolo terminal, então a árvore associada será uma folha de rótulo Xi .
 
@@ -39,47 +37,30 @@ Na prática, o algoritmo de análise sintática não precisa, em geral, conhecer
 
 #### Exemplo.
 
-G1 = ({E,T,F}, {a,b,+,*,(,)}, P1, E)
-
+```G1 = ({E,T,F}, {a,b,+,*,(,)}, P1, E)```
+```
 P1:	E ::= E  + T | T			
-			T ::= T  *  F | F
-			F ::= a | b  | (E )
+	T ::= T  *  F | F
+	F ::= a | b  | (E )
+```
+
+Seja a cadeia (sentença) __w = a + b * a__ 
+e as reduções sucessivas possíveis indicadas de (a) até (i), com os redutendos em negrito:
 
 
-Seja a cadeia (sentença) w = a + b * a 
-e as reduções sucessivas possíveis indicadas de (a) até (i), com os redutendos em negrito e sublinhados:
+(a) **a** + b * a
+(b) **F** + b * a
+(c) **T** + b * a
+(d) E + **b** * a
+(e) E + **F** * a
+(f) E + T * **a**
+(g) E + **T * F**
+(h) **E + T**
+(i) E
 
+Note-se que se as formas sentenciais de (a) a (i) forem colocadas em ordem inversa (de (i) a (a)), obteremos a **derivação direita** da cadeia de entrada.
 
-a + b * a
-F + b * a
-T + b * a
-E + b * a
-E + F * a
-(a)
-(b)
-(c)
-(d)
-(e)
-
-
-
-
-
-E + T * a
-E + T * F
-E + T
-E
-
-(f)
-(g)
-(h)
-(i)
-
-
-Note-se que se as formas sentenciais de (a) a (i) forem colocadas em ordem inversa (de (i) a (a)), obteremos a derivação direita da cadeia de entrada.
-
-    E  	⇒  E + T  ⇒ E + T * F  ⇒ E + T * a  ⇒ E + F * a  ⇒ 
-	⇒  E + b * a  ⇒ T + b * a  ⇒  F + b * a   ⇒  a + b * a
+```E  ⇒  E + T  ⇒ E + T * F  ⇒ E + T * a  ⇒ E + F * a  ⇒  E + b * a  ⇒ T + b * a  ⇒  F + b * a   ⇒  a + b * a```
 
 ### Problemas Básicos da Análise Ascendente
 
@@ -91,7 +72,7 @@ Seja a forma sentencial  E + T * a.
 
 Podemos reduzir 	
 (i)   a  para F, 
-(ii)  T para E    ou 
+(ii)  T para E  ou 
 (iii) E + T para E.
 
 A depender da escolha, não conseguiremos chegar ao símbolo inicial da gramática.
@@ -102,18 +83,16 @@ Estamos interessados em algoritmos que nunca escolhem reduções erradas.
 
 Se a gramática usada possui duas produções:
 
-A → β    e    B → β 
+```A → β```    e    ```B → β```
 
-e se o redutendo é β, 
+e se o redutendo é ```β```, 
 
 então deve existir alguma maneira de decidir qual das duas produções deve ser usada.
 
 
 ## Análise LR(k)
 
-
-Estilo genérico de análise ascendente com filosofia shift-reduce (desloca-reduz)
-
+Estilo genérico de análise ascendente que segue a filosofia _shift-reduce_ (desloca-reduz). As operações de deslocamento e redução são realizadas em uma pilha.
 
 ### Analisadores LR(k)
 
@@ -172,8 +151,8 @@ As ações podem ser:
 - desloca s (shift s):
 lê o próximo símbolo de entrada e empilha o estado s.
 
-- reduz usando A → β  (reduce)
-retira n estados da pilha, onde n = | β | e executa ação (ei, A) da tabela LR (sempre um goto -- veja abaixo), onde ei é o estado que aparece no topo após a retirada dos n estados.
+- reduz usando ```A → β```  (reduce)
+retira n estados da pilha, onde ```n = | β |`` e executa ação (ei, A) da tabela LR (sempre um goto -- veja abaixo), onde ei é o estado que aparece no topo após a retirada dos n estados.
 
 - desvia para s (goto s):
 ação executada imediatamente após uma redução; corresponde a deslocar s para a pilha, sem leitura de símbolo de entrada, mas sim consultando o não-terminal obtido via redução.
@@ -189,52 +168,57 @@ entradas em branco na tabela LR representam situações de erro sintático na en
 
 #### Definição 1
 
-Um item (ou item LR(0)) é uma produção na qual foi marcada uma posição do lado direito (o símbolo • é usado).
+Um item (ou item LR(0)) é uma produção na qual foi marcada uma posição do lado direito com o ```símbolo •```.
 
-Ex.: 	G = ({E},{a,b,+,*}, P, E)
-	P:  E → a | b | +EE | *EE
+Ex.: 	
+```
+G = ({E},{a,b,+,*}, P, E)
+P:  E → a | b | +EE | *EE
 
-	Conjunto de todos os ítens de G:
+Conjunto de todos os ítens de G:
 
-	I (G) = { E → •a , E → •b, E → •+EE,  E → •*EE, 
-		      E → a• , E → b•, E → +•EE,  E → *•EE,
-		      E → +E•E,  E → *E•E, E → +EE•,  E → *EE• }
+I(G) = { E → •a , E → •b, E → •+EE,  E → •*EE, 
+	 E → a• , E → b•, E → +•EE,  E → *•EE,
+	 E → +E•E,  E → *E•E, E → +EE•,  E → *EE• }
+``` 
 
-
- Os ítens são usados para a construção de estados.
+Os ítens são usados para a construção de estados.
 
 - Interpretação
 
-A presença de um estado no topo da pilha que contém um item da forma A → α•β  indica que já foi processada e deslocada para a pilha a parte α do redutendo αβ.
+A presença de um estado no topo da pilha que contém um item da forma ```A → α•β```  indica que já foi processada e deslocada para a pilha a parte ```α``` do redutendo ```αβ```.
 
 - Item completo 
 
-A presença de um estado no topo da pilha que contém um item da forma A → α•  (item completo) indica que já  foi processado um redutendo completo.
+A presença de um estado no topo da pilha que contém um item da forma ```A → α•```  (item completo) indica que já  foi processado um redutendo completo.
 
 Seja um estado no topo da pilha contendo um item incompleto da forma 
 
-```		A → α•Bβ   ```
-    
-com A,B ∈ VN e α,β ∈ (VN ∪ VT)*
+```  A → α•Bβ   com A,B ∈ VN e α,β ∈ (VN ∪ VT)* ```
 
 O algoritmo de análise deverá aceitar qualquer cadeia derivável de B, ou seja:
 
-O estado deverá conter ítens da forma B → •δ.
+O estado deverá conter ítens da forma ```B → •δ```.
 
 #### Definição 2
 
-```Um conjunto K de ítens é fechado se, para todo item de K da forma A → α•Bβ, todos os ítens da forma B → •δ estão em K. 
-Fecho(K) será o menor conjunto fechado que contiver K.```
+```Um conjunto K de ítens é fechado se, para todo item de K da forma A → α•Bβ, todos os ítens da forma B → •δ estão em K.  Fecho(K) será o menor conjunto fechado que contiver K.```
 
-Ex. 1: 	K1 = { E → +•EE }
-		Fecho(K1) = { E → +•EE, E → •a , E → •b, E → •+EE,  E → •*EE }
-
-Ex.2:		K2 = { E → +E•E, E → *•EE, E → •a}
-		Fecho(K2) = { E → +E•E, E → *•EE , E → •a, E → •b, E → •+EE,  E → •*EE }
-
-Ex. 3:	K3 = { E → •b }
-		Fecho(K3) = { E → •b }
-
+```
+Ex. 1: 	
+K1 = { E → +•EE }
+Fecho(K1) = { E → +•EE, E → •a , E → •b, E → •+EE,  E → •*EE }
+```
+```
+Ex.2:		
+K2 = { E → +E•E, E → *•EE, E → •a}
+Fecho(K2) = { E → +E•E, E → *•EE , E → •a, E → •b, E → •+EE,  E → •*EE }
+```
+```
+Ex. 3:	
+K3 = { E → •b }
+Fecho(K3) = { E → •b }
+```
 
 #### Definição 3
 
@@ -242,16 +226,12 @@ Ex. 3:	K3 = { E → •b }
 
 #### Definição 4
 
-
 Se um estado ei contém um item incompleto da forma 
 
-A → α•Xβ,  X ∈ (VN ∪ VT), e 
+```A → α•Xβ,  X ∈ (VN ∪ VT)```, e ei está no topo da pilha e o próximo símbolo consultado for X, 
 
-      ei  está no topo da pilha e 
-      o próximo símbolo consultado for X, 
-
-
-então a parte αX do redutendo terá sido processada, devendo ser empilhado um estado ej que contenha o item A → αX•β.
+então a parte αX do redutendo terá sido processada, devendo ser empilhado um estado ej 
+que contenha o item ```A → αX•β```.
 
 
 #### Definição 5
@@ -259,13 +239,14 @@ então a parte αX do redutendo terá sido processada, devendo ser empilhado um 
 
 A função goto(K,X) é o fecho  do conjunto de todos os ítens da forma A → αX•β, tais que o item A → α•Xβ está em K.
 
-
-Ex. 1: 	K1 = { E → *•EE }
-
-		goto(K1,E) = { E → *E•E, E → •a , E → •b, E → •+EE,  E → •*EE }
-
-
-Ex. 2: 	```goto(K1,*) = ∅``` 
+```
+Ex. 1: 	
+K1 = { E → *•EE }
+goto(K1,E) = { E → *E•E, E → •a , E → •b, E → •+EE,  E → •*EE }
+```
+```
+Ex. 2: 	```goto(K1,*) = ∅
+``` 
 
 ### Construção de Estados LR(0)
 
@@ -311,10 +292,10 @@ E → b
 ```
 e0  =  fecho({E’ → •E#})
 E’ → •E#
-E → •+EE  	E → •*EE 	E → •a    		E → •b
+E → •+EE  	E → •*EE  	E → •a  	E → •b
 
 e1  =  goto(e0,E)
-E’ → E•#		(aceitação)
+E’ → E•#  (aceitação)
 
 e2  =  goto(e0,+)
 E → +•EE
@@ -351,112 +332,102 @@ E → *EE•
 
 #### Tabela LR(0)
 
-| | + | * | a | b | # |
-| E | e0 | e2 | e3 | e4 | e5 |
+|    | + | * | a | b | # | E | 
+| e0 | e2 | e3 | e4 | e5 | | e1 |
+| e1 |   |  | | | a | |
 
-e1
-e1
-
-
-
-
-a
-
-e2
+| e2
 e2
 e3
 e4
 e5
 
-e6
-e3
+e6 |
+
+| e3
 e2
 e3
 e4
 e5
 
-e7
-e4
+e7|
+
+| e4
 r3
 r3
 r3
 r3
 r3
 
-e5
+|
+
+| e5
 r4
 r4
 r4
 r4
 r4
 
-e6
+|
+|e6
 e2
 e3
 e4
 e5
 
-e8
-e7
+e8|
+
+| e7
 e2
 e3
 e4
 e5
 
-e9
-e8
+e9 |
+
+| e8
 r1
 r1
 r1
 r1
 r1
 
-e9
+|
+
+| e9
 r2
 r2
 r2
 r2
 r2
+
+|
 
 
 
 #### Ações
 
-- ei	
+- ei: empilha o estado i
 
-empilha o estado i
+- rj: reduz usando a regra j
 
-- rj
+- a: aceita a cadeia de entrada
 
-reduz usando a regra j
-
-- a
-
-aceita a cadeia de entrada
-
-- branco
-
-rejeita a cadeia de entrada (erro sintático)
+- em branco: rejeita a cadeia de entrada (erro sintático)
 
 
 #### Definição 6
 
-
 Uma gramática é do tipo LR(0) se seus estados contêm apenas ítens completos ou apenas ítens incompletos.
-
 Nesse caso, as reduções podem ser realizadas sem consultar o próximo símbolo na entrada.
 
 
-#### Análise da cadeia *a+ba#
+#### Análise da cadeia *a+ba
 
 
 | Passo | Pilha | Redut. | Cadeia | Ação |
 | 0 | e0 | | *a+ba# | e3 |
-| 1
-| e0 e3
-|
-| a+ba#
-| e4 |
+| 1 | e0 e3 | | a+ba# | e4 |
 | 2
 | e0 e3 e7
 |
@@ -579,16 +550,14 @@ Se existe uma produção A → αΒ ou A → αΒβ e nullable(β) , então Foll
 
 #### Definição 9
 
-Uma gramática é do tipo SLR -- Simple LR -- se a decisão quanto à realização de um deslocamento ou de uma redução puder se basear no próximo símbolo de entrada e no conjunto Follow(X).
+```Uma gramática é do tipo SLR -- Simple LR -- se a decisão quanto à realização de um deslocamento ou de uma redução puder se basear no próximo símbolo de entrada e no conjunto Follow(X).```
 
-Se [A → α•] está em ei, então faça a ação action[i,a] igual a “reduzir usando A → α” para todo a que aparece em FOLLOW(A)  (exceto para S’).
+Se ```[A → α•]``` está em ei, então faça a ação action[i,a] igual a "reduzir usando A → α" para todo _a_ que aparece em FOLLOW(A)  (exceto para S’).
 
 an
 
-    ai
+ai
 
-    a1
-
-## Analisador LR
+a1
 
 
