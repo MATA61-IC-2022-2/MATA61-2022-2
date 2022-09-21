@@ -1,6 +1,6 @@
 # Análise Sintática Ascendente
 
-Análise sintática ascendente (_bottom-up_) a construção da árvore de derivação começa pelas folhas e prossegue em direção à raiz.
+Análise sintática ascendente (_bottom-up_) é um tipo de análise em que a construção da árvore sintática começa pelas folhas e prossegue em direção à raiz.
 
                         S
 
@@ -8,9 +8,8 @@ Análise sintática ascendente (_bottom-up_) a construção da árvore de deriva
                         w
 
 
-A sentença de entrada (cadeia w) é reduzida, em um ou mais passos, ao símbolo inicial da gramática (S).
-
-O processo de redução é inverso ao de derivação:
+Se a sentença de entrada (cadeia w) for válida, ela é _reduzida_, em um ou mais passos, ao símbolo inicial da gramática (S).
+O processo de _redução_ é inverso ao de derivação:
 
 - uma subcadeia ```β``` de uma forma sentencial ```αβγ``` que coincide com o lado direito de alguma produção ```A → β``` é substituída pelo não-terminal A à esquerda da produção, obtendo-se uma nova forma sentencial ```αAγ```.
 
@@ -20,7 +19,7 @@ O processo de redução é inverso ao de derivação:
 
 ### Funcionamento Básico
 
-Adota-se como o valor inicial de α a cadeia de entrada dada.
+Adota-se como o valor inicial de ```α``` a cadeia de entrada.
 
 Procura-se decompor ```α``` de tal maneira que ```α = βX1X2...Xnγ```, e exista uma produção da forma X → X1X2...Xn. 
 Caso isto seja possível, adota-se a nova cadeia ```α = βXγ```, associando-se com esta ocorrência do não-terminal X uma árvore cuja raiz tem rótulo X e cujas subárvores diretas são as árvores que estavam associadas com as ocorrências de X1X2...Xn que foram substituídas. 
@@ -30,17 +29,17 @@ O passo 2 é repetido até que o valor de α seja o símbolo inicial da gramáti
 
 ### Observações
 
-Na prática, o algoritmo de análise sintática não precisa, em geral, conhecer a cadeia α para decidir qual a próxima redução. 
+Na prática, o algoritmo de análise sintática não precisa, em geral, conhecer a cadeia _α_ para decidir qual a próxima redução. 
 
-É suficiente conhecer uma parte inicial ```α′``` de ```α``` e, à medida em que for necessário, novos símbolos serão lidos, estendendo ```α′```.
+É suficiente conhecer uma parte inicial ```α′``` de ```α``` e, quando necessário, novos símbolos serão lidos, estendendo ```α′```.
 
 #### Exemplo.
 
 ```G1 = ({E,T,F}, {a,b,+,*,(,)}, P1, E)```
 ```
-P1:	E ::= E  + T | T			
-	T ::= T  *  F | F
-	F ::= a | b  | (E )
+P1:	E ::= E + T | T			
+	T ::= T * F | F
+	F ::= a | b | (E)
 ```
 
 Seja a cadeia (sentença) __w = a + b * a__ 
@@ -65,7 +64,7 @@ e as reduções sucessivas possíveis indicadas de (a) até (i), com os redutend
 (i) E
 
 
-Note-se que se as formas sentenciais de (a) a (i) forem colocadas em ordem inversa 
+Note-se que, se as formas sentenciais de (a) a (i) forem colocadas em ordem inversa 
 (de (i) a (a)), obteremos a **derivação direita** da cadeia de entrada.
 
 ```
@@ -77,11 +76,12 @@ E  ⇒  E + T  ⇒ E + T * F  ⇒ E + T * a  ⇒ E + F * a ⇒
 
 A cada instante, o algoritmo de análise sintática deverá aplicar a redução ao redutendo de uma forma sentencial direita.
 
-- Identificação da parte da cadeia a ser reduzida (redutendo).
+#### Identificação da parte da cadeia a ser reduzida (redutendo)
 
-Seja a forma sentencial  **E + T * a**.
+Seja a forma sentencial  ```E + T * a```.
 
-Podemos reduzir: 	
+Podemos reduzir: 
+
    (i)   a  para F, 
    
    (ii)  T para E  ou 
@@ -91,12 +91,11 @@ Podemos reduzir:
 A depender da escolha, não conseguiremos chegar ao símbolo inicial da gramática.
 Estamos interessados em algoritmos que nunca escolhem reduções erradas.
 
-
-#### Identificação da produção que deve ser usada na redução.
+#### Identificação da regra de produção que deve ser usada na redução
 
 Se a gramática usada possui duas produções:
 
-```A → β```    e    ```B → β```
+```(1) A → β```    e    ```(2) B → β```
 
 e se o redutendo é ```β```, 
 
@@ -105,7 +104,8 @@ então deve existir alguma maneira de decidir qual das duas produções deve ser
 
 ## Análise LR(k)
 
-Estilo genérico de análise ascendente que segue a filosofia _shift-reduce_ (desloca-reduz). As operações de deslocamento e redução são realizadas em uma pilha.
+Estilo genérico de análise ascendente que segue a filosofia _shift-reduce_ (desloca-reduz). 
+As operações de deslocamento e redução são realizadas em uma pilha.
 
 ### Analisadores LR(k)
 
@@ -133,15 +133,13 @@ k - número de símbolos de entrada (lookahead) usados para decidir sobre a pró
 
 ### Método de _shift-reduce_
 
+__FIGURA__:
 entrada
-
-  
-                                                                                        saída
-                  pilha
+saída
+pilha de estados
         ...
         e0
-                     
-                                                                    tabela LR
+ tabela LR
                                                            
 
 #### Elementos
@@ -175,7 +173,6 @@ ação que indica reconhecimento da cadeia de entrada e provoca a parada do anal
 
 - erro (error):
 entradas em branco na tabela LR representam situações de erro sintático na entrada.
-
 
 ## Análise LR(0)
 
@@ -344,51 +341,16 @@ E → *EE•
 
 |  | + | * | a | b | # | E | 
 |--|---|---|---|---|---|---|
-|e0|e2|e3|e4|e5| |e1|
-|e1| | | | |__a__| |
-|e2| e2 | e3 | e4 | e5 | |e6|
-
-|e3| e2 | e3 | e4 | e5 | |e7|
-
-|e4| r3 | r3 | r3 | r3 |r3| |
-
-|e5| r4 | r4 | r4 | r4 |r4| |
-
-
-|e6
-e2
-e3
-e4
-e5
-
-e8|
-
-| e7
-e2
-e3
-e4
-e5
-
-e9 |
-
-| e8
-r1
-r1
-r1
-r1
-r1
-
-|
-
-| e9
-r2
-r2
-r2
-r2
-r2
-
-|
-
+|e0|e2 |e3|e4|e5| |e1|
+|e1|   |  |  |  |__a__| |
+|e2|e2 | e3 | e4 | e5 | | e6 |
+|e3|e2 | e3 | e4 | e5 | | e7 |
+|e4|r3 | r3 | r3 | r3 | r3 | |
+|e5|r4 | r4 | r4 | r4 | r4 | |
+|e6|e2 |e3 |e4 |e5 | |e8 |
+|e7|e2 |e3 |e4 |e5 | |e9 |
+|e8|r1 |r1 |r1 |r1 |r1 | |
+|e9|r2 |r2 |r2 |r2 |r2 | |
 
 
 #### Ações
@@ -413,13 +375,13 @@ Nesse caso, as reduções podem ser realizadas sem consultar o próximo símbolo
 
 |Passo|Pilha|VN|Cadeia|Ação|
 |-----|-----|-----|------|----|
-| 0   |e0    |   | ```*a+ba#```|e3 |
-| 1   |e0 e3 |   | ```a+ba#```|e4 |
-| 2   |e0 e3 e4 |  | ```+ba#``` |r3 |
-| 3   |e0 e3 | E | ```+ba#``` |e7 |
-| 4   |e0 e3 e7 | ```+ba#``` |e2 |
-| 5   | e0 e3 e7 e2 | ```ba#``` |e5 |
-| 15  |e0 e1 |   | ```#```|__a__ |
+| 0   |e0       |   | ```*a+ba#```|e3 |
+| 1   |e0 e3    |   | ```a+ba#``` |e4 |
+| 2   |e0 e3 e4 |   | ```+ba#```  |r3 |
+| 3   |e0 e3    | E | ```+ba#```  |e7 |
+| 4   |e0 e3 e7 |   | ```+ba#```  |e2 |
+| 5   |e0 e3 e7 e2| | ```ba#```   |e5 |
+| 15  |e0 e1    |   | ```#```     |__a__ |
 
 6 e0 e3 e7 e2 e5
 
