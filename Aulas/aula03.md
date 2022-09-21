@@ -47,7 +47,7 @@ P1:	E ::= E  + T | T
 
 
 Seja a cadeia (sentença) w = a + b * a 
-e	as reduções sucessivas possíveis indicadas de (a) até (i), com os redutendos em negrito e sublinhados:
+e as reduções sucessivas possíveis indicadas de (a) até (i), com os redutendos em negrito e sublinhados:
 
 
 a + b * a
@@ -83,24 +83,22 @@ Note-se que se as formas sentenciais de (a) a (i) forem colocadas em ordem inver
 
 ### Problemas Básicos da Análise Ascendente
 
-
 A cada instante, o algoritmo de análise sintática deverá aplicar a redução ao redutendo de uma forma sentencial direita.
 
 - Identificação da parte da cadeia a ser reduzida (redutendo).
 
 Seja a forma sentencial  E + T * a.
 
-Podemos reduzir 	(i)  a  para F, 
-				(ii) T para E    ou 
-				(iii)E + T para E.
+Podemos reduzir 	
+(i)   a  para F, 
+(ii)  T para E    ou 
+(iii) E + T para E.
 
 A depender da escolha, não conseguiremos chegar ao símbolo inicial da gramática.
-
-
 Estamos interessados em algoritmos que nunca escolhem reduções erradas.
 
 
- Identificação da produção que deve ser usada na redução.
+#### Identificação da produção que deve ser usada na redução.
 
 Se a gramática usada possui duas produções:
 
@@ -225,22 +223,20 @@ O estado deverá conter ítens da forma B → •δ.
 
 #### Definição 2
 
-Um conjunto K de ítens é fechado se, para todo item de K da forma A → α•Bβ, todos os ítens da forma B → •δ estão em K. Fecho(K) será o menor conjunto fechado que contiver K.
+```Um conjunto K de ítens é fechado se, para todo item de K da forma A → α•Bβ, todos os ítens da forma B → •δ estão em K. 
+Fecho(K) será o menor conjunto fechado que contiver K.```
 
 Ex. 1: 	K1 = { E → +•EE }
-		Fecho(K1) = { E → +•EE, E → •a , E → •b, 
-                 		       E → •+EE,  E → •*EE }
+		Fecho(K1) = { E → +•EE, E → •a , E → •b, E → •+EE,  E → •*EE }
 
 Ex.2:		K2 = { E → +E•E, E → *•EE, E → •a}
-		Fecho(K2) = { E → +E•E, E → *•EE , E → •a,
-                 		       E → •b, E → •+EE,  E → •*EE }
+		Fecho(K2) = { E → +E•E, E → *•EE , E → •a, E → •b, E → •+EE,  E → •*EE }
 
 Ex. 3:	K3 = { E → •b }
 		Fecho(K3) = { E → •b }
 
 
 #### Definição 3
-
 
  Um estado é um conjunto fechado de ítens.
 
@@ -465,26 +461,18 @@ Nesse caso, as reduções podem ser realizadas sem consultar o próximo símbolo
 #### Análise da cadeia *a+ba#
 
 
-Passo
-Pilha
-Símb. Red.
-Cadeia
-Ação
-0
-e0
-
-*a+ba#
-e3
-1
-e0 e3
-
-a+ba#
-e4
-2
-e0 e3 e7
-
-+ba#
-r3
+| Passo | Pilha | Redut. | Cadeia | Ação |
+| 0 | e0 | | *a+ba# | e3 |
+| 1
+| e0 e3
+|
+| a+ba#
+| e4 |
+| 2
+| e0 e3 e7
+|
+| +ba#
+| r3 |
 3
 e0 e3
 E
