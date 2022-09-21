@@ -342,12 +342,10 @@ E → *EE•
 
 #### Tabela LR(0)
 
-|X|+|*|a|b|#|E| 
-
-|e0|e2|e3|e4|e5||e1|
-
-|e1| | | | |a| |
-
+|  | + | * | a | b | # | E | 
+|--|---|---|---|---|---|---|
+|e0|e2|e3|e4|e5| |e1|
+|e1| | | | |__a__| |
 |e2| e2 | e3 | e4 | e5 | |e6|
 
 |e3| e2 | e3 | e4 | e5 | |e7|
@@ -415,8 +413,8 @@ Nesse caso, as reduções podem ser realizadas sem consultar o próximo símbolo
 
 |Passo|Pilha|Redut|Cadeia|Ação|
 |-----|-----|-----|------|----|
-|0|e0| |*a+ba#|e3|
-|1|e0|e3| |a+ba#|e4|
+| 0   |e0    |   | ```*a+ba#```|e3 |
+| 1   |e0 e3 |   | ```a+ba#```|e4 |
 
 | 2
 | e0 e3 e7
