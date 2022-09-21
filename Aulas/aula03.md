@@ -262,14 +262,12 @@ A função goto(K,X) é o fecho  do conjunto de todos os ítens da forma A → �
 
 Ex. 1: 	K1 = { E → *•EE }
 
-		goto(K1,E) = { E → *E•E, E → •a , E → •b, 
-                 	       		E → •+EE,  E → •*EE }
+		goto(K1,E) = { E → *E•E, E → •a , E → •b, E → •+EE,  E → •*EE }
 
 
-Ex. 2: 	goto(K1,*) = ∅
+Ex. 2: 	```goto(K1,*) = ∅``` 
 
 ### Construção de Estados LR(0)
-
 
 #### Convenções
 
@@ -281,8 +279,7 @@ Ex. 2: 	goto(K1,*) = ∅
 
 - Estado inicial e0
 
-O estado inicial contém o item S’ → •S#.
-
+O estado inicial contém o item ```S’ → •S#```.
 
 A construção de estados LR(0) partirá do estado inicial e0, obtendo novos estados a partir da aplicação de fecho(K) e goto(K,X), até que não se obtenham mais novos estados.
 
@@ -292,7 +289,7 @@ A construção de estados LR(0) partirá do estado inicial e0, obtendo novos est
 Seja  C um conjunto de estados.
 
 
-Adota-se o estado e0  = fecho({S’ → •S#})  como valor inicial do conjunto C.
+Adota-se o estado ```e0  = fecho({S’ → •S#})```  como valor inicial do conjunto C.
 
 Se existe um estado ei de C e um símbolo X ∈ (VN ∪ VT) tais que o conjunto ej = goto(e,X) não é vazio e ej ainda não está em C, então acrescente ej ao conjunto C.
 
@@ -310,6 +307,7 @@ E →  *EE
 E → a 
 E → b
 ```
+
 ```
 e0  =  fecho({E’ → •E#})
 E’ → •E#
@@ -353,17 +351,8 @@ E → *EE•
 
 #### Tabela LR(0)
 
-+
-*
-a
-b
-#
-E
-e0
-e2
-e3
-e4
-e5
+| | + | * | a | b | # |
+| E | e0 | e2 | e3 | e4 | e5 |
 
 e1
 e1
@@ -473,6 +462,7 @@ Nesse caso, as reduções podem ser realizadas sem consultar o próximo símbolo
 |
 | +ba#
 | r3 |
+
 3
 e0 e3
 E
@@ -593,7 +583,7 @@ Uma gramática é do tipo SLR -- Simple LR -- se a decisão quanto à realizaç�
 
 Se [A → α•] está em ei, então faça a ação action[i,a] igual a “reduzir usando A → α” para todo a que aparece em FOLLOW(A)  (exceto para S’).
 
-     an
+an
 
     ai
 
