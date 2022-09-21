@@ -46,22 +46,32 @@ P1:	E ::= E  + T | T
 Seja a cadeia (sentença) __w = a + b * a__ 
 e as reduções sucessivas possíveis indicadas de (a) até (i), com os redutendos em negrito:
 
-```
 (a) **a** + b * a
+
 (b) **F** + b * a
+
 (c) **T** + b * a
+
 (d) E + **b** * a
+
 (e) E + **F** * a
+
 (f) E + T * **a**
+
 (g) E + **T * F**
+
 (h) **E + T**
+
 (i) E
+
+
+Note-se que se as formas sentenciais de (a) a (i) forem colocadas em ordem inversa 
+(de (i) a (a)), obteremos a **derivação direita** da cadeia de entrada.
+
 ```
-
-Note-se que se as formas sentenciais de (a) a (i) forem colocadas em ordem inversa (de (i) a (a)), obteremos a **derivação direita** da cadeia de entrada.
-
-```E  ⇒  E + T  ⇒ E + T * F  ⇒ E + T * a  ⇒ E + F * a ⇒ 
-      ⇒  E + b * a  ⇒ T + b * a  ⇒  F + b * a   ⇒  a + b * a```
+E  ⇒  E + T  ⇒ E + T * F  ⇒ E + T * a  ⇒ E + F * a ⇒ 
+   ⇒  E + b * a  ⇒ T + b * a  ⇒  F + b * a   ⇒  a + b * a
+```
 
 ### Problemas Básicos da Análise Ascendente
 
@@ -69,11 +79,13 @@ A cada instante, o algoritmo de análise sintática deverá aplicar a redução 
 
 - Identificação da parte da cadeia a ser reduzida (redutendo).
 
-Seja a forma sentencial  E + T * a.
+Seja a forma sentencial  **E + T * a**.
 
 Podemos reduzir: 	
    (i)   a  para F, 
+   
    (ii)  T para E  ou 
+   
    (iii) E + T para E.
 
 A depender da escolha, não conseguiremos chegar ao símbolo inicial da gramática.
@@ -169,7 +181,7 @@ entradas em branco na tabela LR representam situações de erro sintático na en
 
 #### Definição 1
 
-```Um item (ou item LR(0)) é uma produção na qual foi marcada uma posição do lado direito com o símbolo •```.
+Um item (ou item LR(0)) é uma produção na qual foi marcada uma posição do lado direito com o símbolo ```•```.
 
 - Gramática:	
 
@@ -205,7 +217,8 @@ O estado deverá conter ítens da forma ```B → •δ```.
 
 #### Definição 2
 
-```Um conjunto K de ítens é fechado se, para todo item de K da forma A → α•Bβ, todos os ítens da forma B → •δ estão em K.  Fecho(K) será o menor conjunto fechado que contiver K.```
+Um conjunto K de ítens é fechado se, para todo item de K da forma ```A → α•Bβ```, todos os ítens da forma ```B → •δ``` estão em K.  
+Fecho(K) será o menor conjunto fechado que contiver K.
 
 ```
 Ex. 1: 	
@@ -225,7 +238,7 @@ Fecho(K3) = { E → •b }
 
 #### Definição 3
 
- Um estado é um conjunto fechado de ítens.
+Um estado é um conjunto fechado de ítens.
 
 #### Definição 4
 
@@ -233,14 +246,13 @@ Se um estado ei contém um item incompleto da forma
 
 ```A → α•Xβ,  X ∈ (VN ∪ VT)```, e ei está no topo da pilha e o próximo símbolo consultado for X, 
 
-então a parte αX do redutendo terá sido processada, devendo ser empilhado um estado ej 
+então a parte ```αX`` do redutendo terá sido processada, devendo ser empilhado um estado ej 
 que contenha o item ```A → αX•β```.
 
 
 #### Definição 5
 
 A função _goto(K,X)_ é o fecho  do conjunto de todos os ítens da forma ```A → αX•β```, tais que o item ```A → α•Xβ``` está em K.
-
 
 - Exemplos
 
@@ -514,7 +526,7 @@ Follow(X) o conjunto de símbolos terminais que podem seguir o símbolo X em uma
 
 Algoritmo para calcular Follow(X),  X ∈ VN 
 
-- '#' está em Follow(S).
+- ```#``` está em Follow(S).
 
 - Se existe uma produção ```A → αΒβ, β ≠ ε``, então Follow(B) contém ```First(β)```.
 
