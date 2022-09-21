@@ -411,82 +411,69 @@ Nesse caso, as reduções podem ser realizadas sem consultar o próximo símbolo
 #### Análise da cadeia *a+ba
 
 
-|Passo|Pilha|Redut|Cadeia|Ação|
+|Passo|Pilha|VN|Cadeia|Ação|
 |-----|-----|-----|------|----|
 | 0   |e0    |   | ```*a+ba#```|e3 |
 | 1   |e0 e3 |   | ```a+ba#```|e4 |
+| 2   |e0 e3 e4 |  | ```+ba#``` |r3 |
+| 3   |e0 e3 | E | ```+ba#``` |e7 |
+| 4   |e0 e3 e7 | ```+ba#``` |e2 |
+| 5   | e0 e3 e7 e2 | ```ba#``` |e5 |
+| 15  |e0 e1 |   | ```#```|__a__ |
 
-| 2
-| e0 e3 e7
-|
-| +ba#
-| r3 |
-
-3
-e0 e3
-E
-+ba#
-e7
-4
-e0 e3 e7
-
-+ba#
-e2
-5
-e0 e3 e7 e2
-
-ba#
-e5
-6
-e0 e3 e7 e2 e5
+6 e0 e3 e7 e2 e5
 
 a#
 r4
-7
-e0 e3 e7 e2
+
+7 e0 e3 e7 e2
 E
 a#
 e6
-8
-e0 e3 e7 e2 e6
+
+8 e0 e3 e7 e2 e6
 
 a#
 e4
+
 9
 e0 e3 e7 e2 e6 e4
 
 #
 r3
+
 10
 e0 e3 e7 e2 e6
 E
 #
 e8
+
 11
 e0 e3 e7 e2 e6 e8
 
 #
 r1
+
 12
 e0 e3 e7
 E
 #
 e9
+
 13
 e0 e3 e7 e9
 
 '#'
 r2
+
 14
 e0
 E
 '#'
 e1
-15
-e0 e1
 
-'#'
-a
+
+
 
 #### Exemplo B.
 
