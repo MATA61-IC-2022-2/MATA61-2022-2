@@ -414,8 +414,9 @@ Nesse caso, as reduções podem ser realizadas sem consultar o próximo símbolo
 
 
 |Passo|Pilha|Redut|Cadeia|Ação|
-|0|e0||*a+ba#|e3|
-|1|e0|e3||a+ba#|e4|
+|-----|-----|-----|------|----|
+|0|e0| |*a+ba#|e3|
+|1|e0|e3| |a+ba#|e4|
 
 | 2
 | e0 e3 e7
