@@ -332,13 +332,13 @@ E → *EE•
 
 #### Tabela LR(0)
 
-|    | +  | *  | a  | b  | #  | E  | 
-| e0 | e2 | e3 | e4 | e5 |    | e1 |
-| e1 |    |    |    |    | a  |    |
-| e2 | e2 | e3 | e4 | e5 |    | e6 |
-| e3 | e2 | e3 | e4 | e5 |    | e7 |
-| e4 | r3 | r3 | r3 | r3 | r3 |    |
-| e5 | r4 | r4 | r4 | r4 | r4 |    |
+|X| +  | *  | a  | b  | #  |E| 
+|e0| e2 | e3 | e4 | e5 | |e1|
+|e1|    |    |    |    |a| |
+|e2| e2 | e3 | e4 | e5 | |e6|
+|e3| e2 | e3 | e4 | e5 | |e7|
+|e4| r3 | r3 | r3 | r3 |r3| |
+|e5| r4 | r4 | r4 | r4 |r4| |
 
 |e6
 e2
@@ -396,9 +396,10 @@ Nesse caso, as reduções podem ser realizadas sem consultar o próximo símbolo
 #### Análise da cadeia *a+ba
 
 
-| Passo | Pilha | Redut. | Cadeia | Ação |
-| 0 | e0 | | *a+ba# | e3 |
-| 1 | e0 e3 | | a+ba# | e4 |
+|Passo|Pilha|Redut|Cadeia|Ação|
+|0|e0||*a+ba#|e3|
+|1|e0|e3||a+ba#|e4|
+
 | 2
 | e0 e3 e7
 |
