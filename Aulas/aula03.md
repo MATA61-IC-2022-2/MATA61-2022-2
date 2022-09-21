@@ -23,17 +23,16 @@ O processo de redução é inverso ao de derivação:
 Adota-se como o valor inicial de α a cadeia de entrada dada.
 
 Procura-se decompor ```α``` de tal maneira que ```α = βX1X2...Xnγ```, e exista uma produção da forma X → X1X2...Xn. 
-Caso isto seja possível, adota-se a nova cadeia α = βXγ, associando-se com esta ocorrência do não-terminal X uma árvore cuja raiz tem rótulo X e cujas subárvores diretas são as árvores que estavam associadas com as ocorrências de X1X2...Xn que foram substituídas. 
-Se Xi  é um símbolo terminal, então a árvore associada será uma folha de rótulo Xi .
+Caso isto seja possível, adota-se a nova cadeia ```α = βXγ```, associando-se com esta ocorrência do não-terminal X uma árvore cuja raiz tem rótulo X e cujas subárvores diretas são as árvores que estavam associadas com as ocorrências de X1X2...Xn que foram substituídas. 
+Se Xi é um símbolo terminal, então a árvore associada será uma folha de rótulo Xi .
 
 O passo 2 é repetido até que o valor de α seja o símbolo inicial da gramática (S).
-
 
 ### Observações
 
 Na prática, o algoritmo de análise sintática não precisa, em geral, conhecer a cadeia α para decidir qual a próxima redução. 
 
-É suficiente conhecer uma parte inicial α′ de α e, à medida em que for necessário, novos símbolos serão lidos, estendendo α′.
+É suficiente conhecer uma parte inicial ```α′``` de ```α``` e, à medida em que for necessário, novos símbolos serão lidos, estendendo ```α′```.
 
 #### Exemplo.
 
@@ -47,7 +46,7 @@ P1:	E ::= E  + T | T
 Seja a cadeia (sentença) __w = a + b * a__ 
 e as reduções sucessivas possíveis indicadas de (a) até (i), com os redutendos em negrito:
 
-
+```
 (a) **a** + b * a
 (b) **F** + b * a
 (c) **T** + b * a
@@ -57,10 +56,12 @@ e as reduções sucessivas possíveis indicadas de (a) até (i), com os redutend
 (g) E + **T * F**
 (h) **E + T**
 (i) E
+```
 
 Note-se que se as formas sentenciais de (a) a (i) forem colocadas em ordem inversa (de (i) a (a)), obteremos a **derivação direita** da cadeia de entrada.
 
-```E  ⇒  E + T  ⇒ E + T * F  ⇒ E + T * a  ⇒ E + F * a  ⇒  E + b * a  ⇒ T + b * a  ⇒  F + b * a   ⇒  a + b * a```
+```E  ⇒  E + T  ⇒ E + T * F  ⇒ E + T * a  ⇒ E + F * a ⇒ 
+      ⇒  E + b * a  ⇒ T + b * a  ⇒  F + b * a   ⇒  a + b * a```
 
 ### Problemas Básicos da Análise Ascendente
 
@@ -70,10 +71,10 @@ A cada instante, o algoritmo de análise sintática deverá aplicar a redução 
 
 Seja a forma sentencial  E + T * a.
 
-Podemos reduzir 	
-(i)   a  para F, 
-(ii)  T para E  ou 
-(iii) E + T para E.
+Podemos reduzir: 	
+   (i)   a  para F, 
+   (ii)  T para E  ou 
+   (iii) E + T para E.
 
 A depender da escolha, não conseguiremos chegar ao símbolo inicial da gramática.
 Estamos interessados em algoritmos que nunca escolhem reduções erradas.
@@ -118,7 +119,7 @@ k - número de símbolos de entrada (lookahead) usados para decidir sobre a pró
 
 É muito trabalhoso construir a mão um analisador ascendente LR(k) para uma gramática qualquer.
 
-### Método de shift-reduce
+### Método de _shift-reduce_
 
 entrada
 
@@ -168,15 +169,17 @@ entradas em branco na tabela LR representam situações de erro sintático na en
 
 #### Definição 1
 
-Um item (ou item LR(0)) é uma produção na qual foi marcada uma posição do lado direito com o ```símbolo •```.
+```Um item (ou item LR(0)) é uma produção na qual foi marcada uma posição do lado direito com o símbolo •```.
 
-Ex.: 	
+- Gramática:	
+
 ```
 G = ({E},{a,b,+,*}, P, E)
 P:  E → a | b | +EE | *EE
+```
+- Conjunto de todos os ítens de G:
 
-Conjunto de todos os ítens de G:
-
+```
 I(G) = { E → •a , E → •b, E → •+EE,  E → •*EE, 
 	 E → a• , E → b•, E → +•EE,  E → *•EE,
 	 E → +E•E,  E → *E•E, E → +EE•,  E → *EE• }
@@ -236,32 +239,29 @@ que contenha o item ```A → αX•β```.
 
 #### Definição 5
 
+A função _goto(K,X)_ é o fecho  do conjunto de todos os ítens da forma ```A → αX•β```, tais que o item ```A → α•Xβ``` está em K.
 
-A função goto(K,X) é o fecho  do conjunto de todos os ítens da forma A → αX•β, tais que o item A → α•Xβ está em K.
+
+- Exemplos
 
 ```
-Ex. 1: 	
 K1 = { E → *•EE }
 goto(K1,E) = { E → *E•E, E → •a , E → •b, E → •+EE,  E → •*EE }
-```
-```
-Ex. 2: 	```goto(K1,*) = ∅
+
+goto(K1,*) = ∅
 ``` 
 
 ### Construção de Estados LR(0)
 
 #### Convenções
 
-
-- Usar a gramática aumentada G’, acrescentando às produções de G a produção S’ → S#, onde # ∉ VT, S é o símbolo inicial de G e S’ é o símbolo inicial de G’.
+- Usar a gramática aumentada G’, acrescentando às produções de G a produção ```S’ → S#```, onde ```# ∉ VT```, S é o símbolo inicial de G e S’ é o símbolo inicial de G’.
 
 - O símbolo # está no final de toda e qualquer cadeia de entrada.
-
 
 - Estado inicial e0
 
 O estado inicial contém o item ```S’ → •S#```.
-
 A construção de estados LR(0) partirá do estado inicial e0, obtendo novos estados a partir da aplicação de fecho(K) e goto(K,X), até que não se obtenham mais novos estados.
 
 
@@ -269,15 +269,13 @@ A construção de estados LR(0) partirá do estado inicial e0, obtendo novos est
 
 Seja  C um conjunto de estados.
 
-
 Adota-se o estado ```e0  = fecho({S’ → •S#})```  como valor inicial do conjunto C.
 
-Se existe um estado ei de C e um símbolo X ∈ (VN ∪ VT) tais que o conjunto ej = goto(e,X) não é vazio e ej ainda não está em C, então acrescente ej ao conjunto C.
+Se existe um estado ei de C e um símbolo ```X ∈ (VN ∪ VT)``` tais que o conjunto ej = goto(e,X) não é vazio e ej ainda não está em C, então acrescente ej ao conjunto C.
 
 O passo é repetido até que não se possam acrescentar mais estados ao conjunto C.
 
 C é o conjunto de estados LR(0) de G.
-
 
 #### Exemplo A.
 
@@ -332,8 +330,9 @@ E → *EE•
 
 #### Tabela LR(0)
 
-|X| +  | *  | a  | b  | #  |E| 
-|e0| e2 | e3 | e4 | e5 | |e1|
+|X|+|*|a|b|#|E| 
+|e0|e2|e3|e4|e5||e1|
+
 |e1|    |    |    |    |a| |
 |e2| e2 | e3 | e4 | e5 | |e6|
 |e3| e2 | e3 | e4 | e5 | |e7|
@@ -474,16 +473,19 @@ a
 
 #### Exemplo B.
 
-```G1 = ({E,T,F}, {a,b,+,*,(,)}, P1, E)```
-
 ```
-P1:	E’ → E#
+G1 = ({E,T,F}, {a,b,+,*,(,)}, P1, E)
+
+P1:
+E’ → E#
 E → E  + T | T			
-		T → T  *  F | F
-		F → (E ) | a
+T → T  *  F | F
+F → (E ) | a
+```
 
 G1 não é LR(0).
 
+```
 e0  =  fecho({E’ → •E#})
 E’ → •E #
 	...
@@ -506,25 +508,23 @@ e9 = goto(e6,T)
 
 Uma gramática é do tipo LR(1) se a decisão quanto à realização de um deslocamento ou de uma redução puder se basear apenas no próximo símbolo de entrada.
 
-
 #### Definição 8
 
 Follow(X) o conjunto de símbolos terminais que podem seguir o símbolo X em uma forma sentencial.
 
 Algoritmo para calcular Follow(X),  X ∈ VN 
 
-'#' está em Follow(S).
+- '#' está em Follow(S).
 
-Se existe uma produção A → αΒβ, β ≠ ε, então Follow(B) contém First(β).
+- Se existe uma produção ```A → αΒβ, β ≠ ε``, então Follow(B) contém ```First(β)```.
 
-Se existe uma produção A → αΒ ou A → αΒβ e nullable(β) , então Follow(B) contém Follow(A).
-
+- Se existe uma produção ```A → αΒ``` ou ```A → αΒβ``` e ```nullable(β)``` , então Follow(B) contém Follow(A).
 
 #### Definição 9
 
-```Uma gramática é do tipo SLR -- Simple LR -- se a decisão quanto à realização de um deslocamento ou de uma redução puder se basear no próximo símbolo de entrada e no conjunto Follow(X).```
+Uma gramática é do tipo SLR -- Simple LR -- se a decisão quanto à realização de um deslocamento ou de uma redução puder se basear no próximo símbolo de entrada e no conjunto Follow(X).
 
-Se ```[A → α•]``` está em ei, então faça a ação action[i,a] igual a "reduzir usando A → α" para todo _a_ que aparece em FOLLOW(A)  (exceto para S’).
+Se ```[A → α•]``` está em ei, então faça a ação action[i,a] igual a "reduzir usando ```A → α```" para todo _a_ que aparece em FOLLOW(A)  (exceto para S’).
 
 an
 
