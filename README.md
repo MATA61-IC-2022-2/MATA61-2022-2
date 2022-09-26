@@ -58,7 +58,6 @@ intermediário. Geração e otimização de código objeto.
 
 - Google Classroom
 - GitHub
-- Discord
  
 ## Atividades 
  
@@ -84,7 +83,7 @@ Data | Semana | Tópico
 12 e 14/09/2022 | 5 | Análise sintática descendente; Análise preditiva
 19 e 21/09/2022 | 6 | Análise LL(1)
 26 e 28/09/2022 | 7 | Análise sintática ascendente; Análise SLR
-03 e 05/10/2022 | 8 | Análise sintática ascendente; Bison (Aulas remotas - CBSOFT / SBES 2022)
+03 e 05/10/2022 | 8 | Análise LR(1); Análise LALR; Bison (Aulas remotas - CBSOFT / SBES 2022)
 10 e 12/10/2022 | 9 | Integração entre Bison e Flex; FERIADO
 17 e 19/10/2022 | 10 | Exercícios; Especificação do trabalho prático 2 (Aula remota - Palestra no ERES 2022)
 24 e 26/10/2022 | 11 | Análise Semântica
