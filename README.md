@@ -97,7 +97,7 @@ Data | Semana | Tópico
 ## Material de Apoio
 
 - Algumas [aulas em markdown](./Aulas/README.md)
-- Especificação da linguagem C-](./CMinus/README.md)
+- [Especificação da linguagem C-](./CMinus/README.md)
 - Especificação e implementação do compilador: Repositórios na organização mata61-ic-ufba-2022-2.org no GitHub.
 - Exercícios práticos de implementação, textos em formato markdown: Repositórios na organização mata61-ic-ufba-2022-2.org no GitHub. 
 - Exercícios, quizzes, textos em formato .PDF, slides e vídeos: Google Classroom da UFBA, disciplina MATA61 2022.2 T01.
