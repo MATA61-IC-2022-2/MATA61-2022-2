@@ -96,8 +96,11 @@ Data | Semana | Tópico
 
 ## Material de Apoio
 
-- Exercícios, quizzes, textos em formato .PDF e vídeos: Google Classroom da UFBA, disciplina MATA61 2022.2 T01.
-- Código de exercícios práticos, textos em formato markdown, especificação e implementação do compilador: Repositórios na Organização mata61-ic-ufba-2022-2 no GitHub.
+- Algumas [aulas em markdown](./Aulas/README.md)
+- Especificação da linguagem C-](./CMinus/README.md)
+- Especificação e implementação do compilador: Repositórios na organização mata61-ic-ufba-2022-2.org no GitHub.
+- Exercícios práticos de implementação, textos em formato markdown: Repositórios na organização mata61-ic-ufba-2022-2.org no GitHub. 
+- Exercícios, quizzes, textos em formato .PDF, slides e vídeos: Google Classroom da UFBA, disciplina MATA61 2022.2 T01.
 - Tutoriais: Git & GitHub Basics; Git-it: https://github.com/jlord/git-it-electron/releases
 
 ## Bibliografia
