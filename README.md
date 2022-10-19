@@ -90,7 +90,7 @@ Data | Semana | Tópico
 31/10 e 02/11/2022 | 12 |  
 07 e 09/11/2022 | 13 |  
 14 e 16/11/2022 | 14 | 
-21 e 23/11/2022 | 15 | 
+21 e 23/11/2022 | 15 | Prova: aspectos léxicos, sintáticos e semânticos com base nos conceitos e trabalhos T1, T2, T3
 05 e 07/12/2022 | 16 | 
 12 e 14/12/2022 | 17 | 
 
